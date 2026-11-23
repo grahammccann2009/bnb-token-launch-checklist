@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BEP-20 Token Launch Checklist for BNB Chain (2026)</title>
+<meta name="description" content="A step by step checklist for launching a BEP-20 token on BNB Chain: settings you cannot change later, what it really costs, PancakeSwap liquidity and the checks buyers run. By Graham McCann.">
+<meta name="author" content="Graham McCann">
+<link rel="canonical" href="https://grahammccann2009.github.io/bnb-token-launch-checklist/">
+<meta property="og:title" content="BEP-20 Token Launch Checklist for BNB Chain">
+<meta property="og:description" content="Settings, real costs, PancakeSwap liquidity and buyer checks for a new BEP-20 token.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://grahammccann2009.github.io/bnb-token-launch-checklist/">
+<meta property="og:image" content="https://www.thetokenlauncher.com/images/guides/bnb-launch-checklist-cover.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"BEP-20 Token Launch Checklist for BNB Chain (2026)","author":{"@type":"Person","name":"Graham McCann"},"datePublished":"2026-11-23","dateModified":"2026-11-23","image":"https://www.thetokenlauncher.com/images/guides/bnb-launch-checklist-cover.png","mainEntityOfPage":"https://grahammccann2009.github.io/bnb-token-launch-checklist/"}
+</script>
+<style>
+:root{--bg:#ffffff;--ink:#111827;--muted:#4b5563;--line:#e5e7eb;--accent:#a16207;--soft:#fefce8;--warn:#b91c1c}
+@media (prefers-color-scheme:dark){:root{--bg:#0c0c0e;--ink:#e5e7eb;--muted:#9ca3af;--line:#27272a;--accent:#f0b90b;--soft:#1f1a07;--warn:#f87171}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:860px;margin:0 auto;padding:40px 16px 64px}
+h1{font-size:2.1rem;line-height:1.2;margin:0 0 8px}
+h2{font-size:1.35rem;margin:40px 0 10px}
+.by{color:var(--muted);margin:0 0 24px;font-size:.95rem}
+.answer{background:var(--soft);border-left:4px solid var(--accent);padding:14px 18px;border-radius:6px}
+img{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--line)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:.95rem}
+th,td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+th{font-weight:600}
+ol li,ul li{margin:6px 0}
+.warn{color:var(--warn);font-weight:600}
+a{color:var(--accent)}
+footer{margin-top:48px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<main>
+<h1>BEP-20 Token Launch Checklist for BNB Chain</h1>
+<p class="by">By Graham McCann · 23 November 2026</p>
+
+<p class="answer">A BEP-20 token is a standard token contract on BNB Smart Chain. Creating one takes minutes and the network gas for the deploy is about 2 US cents. The parts that decide whether the launch works come before and after: settings you can never change, the PancakeSwap pool, and the checks buyers run in the first hour.</p>
+
+<p><img src="https://www.thetokenlauncher.com/images/guides/bnb-launch-checklist-cover.png" width="1600" height="900" alt="BEP-20 token launch checklist for BNB Chain: settings, costs, PancakeSwap liquidity and buyer checks"></p>
+
+<h2>1. Decide the settings you cannot change</h2>
+<div class="tbl">
+<table>
+<thead><tr><th>Setting</th><th>Change later?</th><th>Advice</th></tr></thead>
+<tbody>
+<tr><td>Name</td><td>No</td><td>Unique and searchable. Check BscScan for clashes first</td></tr>
+<tr><td>Symbol</td><td>No</td><td>3 to 5 letters. Never reuse a stablecoin or major coin ticker</td></tr>
+<tr><td>Decimals</td><td>No</td><td>18 is the BEP-20 default and what wallets expect</td></tr>
+<tr><td>Total supply</td><td>No, on a fixed-supply contract</td><td>Round numbers (1 billion, 100 million) read better on charts</td></tr>
+<tr><td>Owner</td><td>Yes, until renounced</td><td>Renouncing proves no admin can change the contract</td></tr>
+</tbody>
+</table>
+</div>
+<p class="warn">Do not name a token USDT, USDC or after any other existing coin. Copycat tokens are a known scam pattern, explorers and wallets flag them, and exchanges delist them.</p>
+
+<h2>2. Fund the right wallet</h2>
+<ul>
+<li>You need BNB on BNB Smart Chain (chain ID 56). BNB on another network or an exchange balance does not count until it is withdrawn to your wallet on BNB Smart Chain.</li>
+<li>Budget for three things: the token deploy, the liquidity you will pair, and gas for the pool and a few test transfers.</li>
+<li>Use a wallet you control, such as MetaMask or Trust Wallet. The full supply should land there, not on a third-party platform.</li>
+</ul>
+
+<h2>3. Know what it really costs</h2>
+<p>I asked each network's public RPC to estimate the gas for deploying the same fixed-supply token contract, then priced it at the gas price and coin price of that moment. The contract needs 763,583 gas on every network. BNB Smart Chain's gas price was 0.05 gwei.</p>
+<p><img src="https://www.thetokenlauncher.com/images/guides/bnb-deploy-cost-2026-11.png" width="1600" height="900" alt="Bar chart of the gas cost to deploy a standard token contract on 23 November 2026: BNB Chain about 2 cents, Base about 4 cents, Ethereum about $8.15"></p>
+<div class="tbl">
+<table>
+<thead><tr><th>Network</th><th>Gas price</th><th>Deploy gas</th><th>In US dollars</th></tr></thead>
+<tbody>
+<tr><td>BNB Smart Chain</td><td>0.05 gwei</td><td>0.0000382 BNB</td><td>$0.02</td></tr>
+<tr><td>Base</td><td>0.029 gwei</td><td>0.0000225 ETH</td><td>$0.04</td></tr>
+<tr><td>Ethereum</td><td>5.93 gwei</td><td>0.00453 ETH</td><td>$8.15</td></tr>
+</tbody>
+</table>
+</div>
+<p>Measured on 23 November 2026 at 14:06 UTC with BNB at $574.75 and ETH at $1,799.54. Network gas on BNB Chain is close to free, so the real costs are any service fee and the liquidity you add.</p>
+
+<h2>4. Deploy and check the contract</h2>
+<ol>
+<li>Deploy the contract, either yourself with Remix or Hardhat, or with a no-code creator.</li>
+<li>Open the contract address on BscScan. Check the name, symbol, decimals and total supply match what you meant.</li>
+<li>Confirm the whole supply is in your wallet, not split with a platform.</li>
+<li>Verify the source code on BscScan so buyers can read it.</li>
+<li>Add the token to your wallet with the contract address, not by name search.</li>
+</ol>
+
+<h2>5. Add liquidity on PancakeSwap</h2>
+<ol>
+<li>Decide the starting price. It is set by the ratio of tokens to BNB you put in the first pool.</li>
+<li>Create the pool on PancakeSwap (pair with BNB or a stablecoin), approve the token, then add both sides.</li>
+<li>Lock or burn the LP tokens if you want buyers to see the liquidity cannot be pulled.</li>
+<li>Make a small test swap both ways before you share the address.</li>
+</ol>
+
+<h2>6. Pass the checks buyers run</h2>
+<ul>
+<li>Ownership renounced, or a clear reason it is not.</li>
+<li>No hidden mint, blacklist or high tax functions in the verified source.</li>
+<li>Liquidity locked or burned, with the lock visible on chain.</li>
+<li>Holder list not dominated by one wallet apart from the pool.</li>
+<li>A website or channel that explains what the token is for.</li>
+</ul>
+
+<h2>Doing it without code</h2>
+<p>TheTokenLauncher has a <a href="https://www.thetokenlauncher.com/bnb-token-creator/">BEP-20 token creator for BNB Chain</a> that covers steps 1 and 4 from your browser wallet. It deploys a fixed-supply contract, sends the full supply to you and can renounce ownership, from 0.03 BNB. Its <a href="https://www.thetokenlauncher.com/how-to-add-liquidity-on-pancakeswap/">PancakeSwap liquidity guide</a> walks through step 5.</p>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://docs.bnbchain.org/">BNB Chain documentation</a></li>
+<li><a href="https://docs.pancakeswap.finance/">PancakeSwap documentation</a></li>
+<li>Gas estimates: eth_estimateGas and eth_gasPrice on each network's public RPC, 23 November 2026. Coin prices from CoinGecko at the same time.</li>
+</ul>
+
+<footer>Written by Graham McCann, who builds token creation tools. Figures are a dated snapshot, not financial advice.</footer>
+</main>
+</body>
+</html>
